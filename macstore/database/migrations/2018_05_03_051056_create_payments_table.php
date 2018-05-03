@@ -13,8 +13,12 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('payments', function ($table) {
+            $table->increments('payment_id');
+            $table->integer('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('customer_id')->on('customers');
+            $table->float('total');
+            $table->integer('confirm');
             $table->timestamps();
         });
     }

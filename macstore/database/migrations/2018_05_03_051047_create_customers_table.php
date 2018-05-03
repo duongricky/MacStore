@@ -13,9 +13,16 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('customers', function ($table) {
+            $table->increments('customer_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->text('address');
+            $table->string('email');
+            //Giới tính có 3 trường 0 là nữ, 1 là nam, 3 là bê đê
+            $table->integer('gender')->default(0);
+            $table->string('login_username');
+            $table->string('login_password');
         });
     }
 

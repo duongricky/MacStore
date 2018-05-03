@@ -13,12 +13,15 @@ class CreateRatingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ratings', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+      Schema::create('ratings', function ($table) {
+        $table->increments('rating_id');
+        $table->integer('customer_id')->unsigned();
+        $table->foreign('customer_id')->references('customer_id')->on('customers');
+        $table->integer('stars')->default(0);
+        $table->text('content');
+        $table->timestamps();
+      });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -26,6 +29,6 @@ class CreateRatingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ratings');
+      Schema::dropIfExists('ratings');
     }
-}
+  }

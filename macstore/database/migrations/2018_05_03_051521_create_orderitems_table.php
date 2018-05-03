@@ -13,9 +13,16 @@ class CreateOrderitemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderitems', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('orderitems', function ($table) {
+            $table->increments('item_id');
+            $table->integer('order_id')->unsigned();
+            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->integer('product_id')->unsigned();
+            $table->foreign('product_id')->references('product_id')->on('products');
+            //Thêm trường số lượng sản phẩm muốn order
+            $table->integer('quantity');
+            //Tính giá tiền từng item
+            $table->float('item_price');
         });
     }
 
