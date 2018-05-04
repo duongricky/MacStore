@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\categories;
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('demo', function () {
+	$get_product = App\categories::find(2)->products->toArray();
+	var_dump($get_product);exit();
 });
