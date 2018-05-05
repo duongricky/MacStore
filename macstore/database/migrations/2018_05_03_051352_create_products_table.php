@@ -14,13 +14,14 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function ($table) {
-            $table->increments('product_id');
+            $table->increments('id');
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->integer('rating_id')->unsigned();
-            $table->foreign('rating_id')->references('rating_id')->on('ratings');
+            $table->foreign('rating_id')->references('id')->on('ratings');
             $table->string('year_version');
             $table->string('screen');
+            $table->integer('ssd');
             $table->text('description');
             $table->float('discount');
             $table->float('prices');

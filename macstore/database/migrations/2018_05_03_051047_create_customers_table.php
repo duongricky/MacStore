@@ -14,7 +14,7 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function ($table) {
-            $table->increments('customer_id');
+            $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
             $table->text('address');

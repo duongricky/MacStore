@@ -9,6 +9,6 @@ class payments extends Model
     protected $table = 'payments';
     public function customers(){
     	//Liên kết thông qua bảng customer
-    	return $this->belongsTo('App\customers','customer_id','customer_id');
+    	return $this->belongsTo('App\customers','customer_id','id');
     }
 }

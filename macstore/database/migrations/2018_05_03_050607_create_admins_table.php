@@ -14,7 +14,7 @@ class CreateAdminsTable extends Migration
     public function up()
     {
         Schema::create('admins', function ($table) {
-            $table->increments('admin_id');
+            $table->increments('id');
             $table->string('username');
             $table->string('password');
             $table->string('email');

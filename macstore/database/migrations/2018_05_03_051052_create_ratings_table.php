@@ -14,9 +14,9 @@ class CreateRatingsTable extends Migration
     public function up()
     {
       Schema::create('ratings', function ($table) {
-        $table->increments('rating_id');
+        $table->increments('id');
         $table->integer('customer_id')->unsigned();
-        $table->foreign('customer_id')->references('customer_id')->on('customers');
+        $table->foreign('customer_id')->references('id')->on('customers');
         $table->integer('stars')->default(0);
         $table->text('content');
         $table->timestamps();

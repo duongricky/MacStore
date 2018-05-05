@@ -14,9 +14,9 @@ class CreatePaymentsTable extends Migration
     public function up()
     {
         Schema::create('payments', function ($table) {
-            $table->increments('payment_id');
+            $table->increments('id');
             $table->integer('customer_id')->unsigned();
-            $table->foreign('customer_id')->references('customer_id')->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers');
             $table->float('total');
             $table->integer('confirm');
             $table->timestamps();

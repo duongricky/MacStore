@@ -14,7 +14,8 @@ use App\categories;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('demo', function () {
-	$get_product = App\categories::find(2)->products->toArray();
-	var_dump($get_product);exit();
+Route::get('truncate_data', function () {
+	// DB::table('orderitems')->truncate();
+	// DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+	// DB::table('products')->truncate();
 });
